@@ -1,0 +1,16 @@
+# Scope of the license
+
+The MIT license applies to the original software in `src/`, `scripts/`,
+`tests/`, and software configuration and build files in this repository.
+It does not relicense upstream datasets, third-party software, publications,
+or other third-party material. Dependencies retain their own licenses.
+
+No separate open-content license is granted here for manuscript or
+supplementary text, figures, or research results. Their inclusion does not
+imply a Creative Commons license. Associated authorship and applicable
+third-party rights remain in force.
+
+The Allen Institute and NeMO sources are identified in `DATA_LICENSES.md`
+and the data manifests. Raw third-party data and source-paper PDFs are not
+redistributed. Dataset identifiers and derived research summaries are
+included to document the analyses.

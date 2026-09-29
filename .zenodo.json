@@ -1,0 +1,29 @@
+{
+  "title": "Patch-seq Molecular Specificity Analysis",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Reproducible analysis and matched-negative-control framework for testing molecular specificity in electrophysiology-to-transcript prediction using Allen Patch-seq data.",
+  "creators": [
+    {
+      "name": "Mohammadhasani, Saleh",
+      "affiliation": "Department of Electrical Engineering, Sharif University of Technology, Tehran, Iran"
+    },
+    {
+      "name": "Kazemeynimoghaddam, Reza",
+      "affiliation": "Department of Electrical Engineering, Sharif University of Technology, Tehran, Iran"
+    },
+    {
+      "name": "Khadempir, Amirreza",
+      "affiliation": "Department of Computer Engineering, Ferdowsi University of Mashhad, Mashhad, Iran"
+    },
+    {
+      "name": "Hamidirad, Pedram",
+      "affiliation": "Department of Chemistry, Sharif University of Technology, Tehran, Iran"
+    },
+    {
+      "name": "Dehghan Nayeri, Amirreza",
+      "affiliation": "Department of Chemistry, Sharif University of Technology, Tehran, Iran"
+    }
+  ]
+}
