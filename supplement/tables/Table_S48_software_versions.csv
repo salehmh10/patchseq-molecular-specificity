@@ -1,0 +1,14 @@
+software,version,source
+Python,3.12.3,RUNTIME.md
+numpy,2.2.6,requirements.txt
+pandas,2.2.2,requirements.txt
+scipy,1.13.0,requirements.txt
+scikit-learn,1.9.0,requirements.txt
+xgboost,3.4.0,requirements.txt
+shap,0.52.0,requirements.txt
+matplotlib,3.8.4,requirements.txt
+pyarrow,25.0.0,requirements.txt
+h5py,3.14.0,requirements.txt
+joblib,1.5.3,requirements.txt
+PyYAML,6.0.1,requirements.txt
+pytest,9.1.1,requirements.txt

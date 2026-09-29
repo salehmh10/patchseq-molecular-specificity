@@ -1,0 +1,17 @@
+model,candidate,alpha,l1_ratio,max_iter,n_estimators,max_depth,learning_rate,reg_lambda,subsample,colsample_bytree,objective,tree_method,n_jobs,random_state
+ElasticNet,0,0.001,0.1,5000.0,,,,,,,,,,
+ElasticNet,1,0.001,0.5,5000.0,,,,,,,,,,
+ElasticNet,2,0.001,0.9,5000.0,,,,,,,,,,
+ElasticNet,3,0.01,0.1,5000.0,,,,,,,,,,
+ElasticNet,4,0.01,0.5,5000.0,,,,,,,,,,
+ElasticNet,5,0.01,0.9,5000.0,,,,,,,,,,
+ElasticNet,6,0.1,0.1,5000.0,,,,,,,,,,
+ElasticNet,7,0.1,0.5,5000.0,,,,,,,,,,
+ElasticNet,8,0.1,0.9,5000.0,,,,,,,,,,
+ElasticNet,9,1.0,0.1,5000.0,,,,,,,,,,
+ElasticNet,10,1.0,0.5,5000.0,,,,,,,,,,
+ElasticNet,11,1.0,0.9,5000.0,,,,,,,,,,
+XGBoost,0,,,,250.0,2.0,0.05,1.0,0.8,0.8,reg:squarederror,hist,1.0,42.0
+XGBoost,1,,,,400.0,2.0,0.03,3.0,0.8,0.8,reg:squarederror,hist,1.0,42.0
+XGBoost,2,,,,250.0,3.0,0.05,3.0,0.8,0.8,reg:squarederror,hist,1.0,42.0
+XGBoost,3,,,,300.0,4.0,0.03,5.0,0.8,0.8,reg:squarederror,hist,1.0,42.0

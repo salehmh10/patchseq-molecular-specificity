@@ -1,0 +1,5 @@
+scope,result,evidence
+Specificity-control pipeline,42 passed in 8.41s,project/logs/revision_v3/specificity/pytest.log
+23-feature modeling pipeline,76 passed in 20.43s,project/logs/revision_v3/section2/pytest.log
+"1,000-control extension",83 passed in 62.04s (0:01:02),project/logs/revision_v3/section4/pytest_stdout.log
+Curated release,107 files; models_fitted=0,project/release/provenance/release_build_summary.json

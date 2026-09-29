@@ -1,0 +1,145 @@
+module,fold,model,model_seed,inner_rmse,alpha,l1_ratio,n_estimators,max_depth,learning_rate,reg_lambda,hidden_layer_sizes,seed,max_iter,selected_iter,actual_refit_iter,inner_split_seed,inner_validation_fraction,inner_split_method,early_stopping,solver,activation,learning_rate_init,batch_size,shuffle,sklearn_early_stopping,strategy
+NaV,0,ElasticNet,42,0.8097913829643121,0.01,0.1,,,,,,,,,,,,,,,,,,,,
+NaV,0,XGBoost,42,0.8024983780802607,,,250.0,2.0,0.05,1.0,,,,,,,,,,,,,,,,
+NaV,0,MLP,42,0.8339459121175868,0.001,,,,constant,,"(64, 32)",42.0,89.0,89.0,89.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,0,MLP,123,0.8438515401912143,0.001,,,,constant,,"(64, 32)",123.0,83.0,83.0,83.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,0,MLP,2026,0.8401253568033329,0.001,,,,constant,,"(64, 32)",2026.0,90.0,90.0,90.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,0,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+NaV,0,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+NaV,0,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+NaV,1,ElasticNet,42,0.826354370158316,0.001,0.1,,,,,,,,,,,,,,,,,,,,
+NaV,1,XGBoost,42,0.8337219301457984,,,400.0,2.0,0.03,3.0,,,,,,,,,,,,,,,,
+NaV,1,MLP,42,0.8624592751624013,0.001,,,,constant,,"(64, 32)",42.0,81.0,81.0,81.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,1,MLP,123,0.8523212115586498,0.001,,,,constant,,"(64, 32)",123.0,53.0,53.0,53.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,1,MLP,2026,0.8650536213249161,0.001,,,,constant,,"(64, 32)",2026.0,56.0,56.0,56.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,1,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+NaV,1,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+NaV,1,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+NaV,2,ElasticNet,42,0.8305090108936074,0.1,0.1,,,,,,,,,,,,,,,,,,,,
+NaV,2,XGBoost,42,0.8238097251946638,,,250.0,2.0,0.05,1.0,,,,,,,,,,,,,,,,
+NaV,2,MLP,42,0.8550642200974478,0.001,,,,constant,,"(64, 32)",42.0,92.0,92.0,92.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,2,MLP,123,0.8480779076974193,0.001,,,,constant,,"(64, 32)",123.0,95.0,95.0,95.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,2,MLP,2026,0.8486088347378946,0.001,,,,constant,,"(64, 32)",2026.0,97.0,97.0,97.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+NaV,2,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+NaV,2,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+NaV,2,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+Kv,0,ElasticNet,42,0.5175942625965844,0.001,0.5,,,,,,,,,,,,,,,,,,,,
+Kv,0,XGBoost,42,0.5184102845264104,,,250.0,2.0,0.05,1.0,,,,,,,,,,,,,,,,
+Kv,0,MLP,42,0.5425046826568195,0.001,,,,constant,,"(64, 32)",42.0,118.0,118.0,118.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,0,MLP,123,0.5395024466011039,0.001,,,,constant,,"(64, 32)",123.0,91.0,91.0,91.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,0,MLP,2026,0.5476353795182002,0.001,,,,constant,,"(64, 32)",2026.0,65.0,65.0,65.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,0,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+Kv,0,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+Kv,0,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+Kv,1,ElasticNet,42,0.5509198445594449,0.01,0.1,,,,,,,,,,,,,,,,,,,,
+Kv,1,XGBoost,42,0.556907366971602,,,400.0,2.0,0.03,3.0,,,,,,,,,,,,,,,,
+Kv,1,MLP,42,0.5910221549093048,0.001,,,,constant,,"(64, 32)",42.0,85.0,85.0,85.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,1,MLP,123,0.5967187467324765,0.001,,,,constant,,"(64, 32)",123.0,52.0,52.0,52.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,1,MLP,2026,0.5885991240357833,0.001,,,,constant,,"(64, 32)",2026.0,71.0,71.0,71.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,1,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+Kv,1,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+Kv,1,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+Kv,2,ElasticNet,42,0.5516120874582702,0.1,0.5,,,,,,,,,,,,,,,,,,,,
+Kv,2,XGBoost,42,0.5492085155645359,,,300.0,4.0,0.03,5.0,,,,,,,,,,,,,,,,
+Kv,2,MLP,42,0.5616258201704764,0.001,,,,constant,,"(64, 32)",42.0,97.0,97.0,97.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,2,MLP,123,0.5769404220837443,0.001,,,,constant,,"(64, 32)",123.0,107.0,107.0,107.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,2,MLP,2026,0.5715280374456033,0.001,,,,constant,,"(64, 32)",2026.0,74.0,74.0,74.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+Kv,2,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+Kv,2,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+Kv,2,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+CaV,0,ElasticNet,42,0.853455950210184,0.001,0.1,,,,,,,,,,,,,,,,,,,,
+CaV,0,XGBoost,42,0.8523765656809446,,,400.0,2.0,0.03,3.0,,,,,,,,,,,,,,,,
+CaV,0,MLP,42,0.9187907661729212,0.001,,,,constant,,"(64, 32)",42.0,109.0,109.0,109.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,0,MLP,123,0.8977796304393457,0.001,,,,constant,,"(64, 32)",123.0,89.0,89.0,89.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,0,MLP,2026,0.8969307511794681,0.001,,,,constant,,"(64, 32)",2026.0,77.0,77.0,77.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,0,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+CaV,0,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+CaV,0,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+CaV,1,ElasticNet,42,0.9176430241770703,0.01,0.5,,,,,,,,,,,,,,,,,,,,
+CaV,1,XGBoost,42,0.9021236091708547,,,300.0,4.0,0.03,5.0,,,,,,,,,,,,,,,,
+CaV,1,MLP,42,0.9696204927939837,0.001,,,,constant,,"(64, 32)",42.0,124.0,124.0,124.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,1,MLP,123,0.9731624358560952,0.001,,,,constant,,"(64, 32)",123.0,57.0,57.0,57.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,1,MLP,2026,0.9478364619746091,0.001,,,,constant,,"(64, 32)",2026.0,80.0,80.0,80.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,1,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+CaV,1,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+CaV,1,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+CaV,2,ElasticNet,42,0.9398175759149702,0.1,0.1,,,,,,,,,,,,,,,,,,,,
+CaV,2,XGBoost,42,0.9373587791676129,,,400.0,2.0,0.03,3.0,,,,,,,,,,,,,,,,
+CaV,2,MLP,42,0.984657201859124,0.001,,,,constant,,"(64, 32)",42.0,94.0,94.0,94.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,2,MLP,123,0.9598262234102156,0.001,,,,constant,,"(64, 32)",123.0,78.0,78.0,78.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,2,MLP,2026,0.9769669073636299,0.001,,,,constant,,"(64, 32)",2026.0,88.0,88.0,88.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+CaV,2,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+CaV,2,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+CaV,2,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+HCN,0,ElasticNet,42,1.164604216123204,0.001,0.1,,,,,,,,,,,,,,,,,,,,
+HCN,0,XGBoost,42,1.1600267348383735,,,250.0,3.0,0.05,3.0,,,,,,,,,,,,,,,,
+HCN,0,MLP,42,1.2217950439465484,0.001,,,,constant,,"(64, 32)",42.0,86.0,86.0,86.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,0,MLP,123,1.1927975295129505,0.001,,,,constant,,"(64, 32)",123.0,60.0,60.0,60.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,0,MLP,2026,1.2014170972853149,0.001,,,,constant,,"(64, 32)",2026.0,67.0,67.0,67.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,0,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+HCN,0,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+HCN,0,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+HCN,1,ElasticNet,42,1.128407803974861,0.01,0.9,,,,,,,,,,,,,,,,,,,,
+HCN,1,XGBoost,42,1.1507038666310017,,,400.0,2.0,0.03,3.0,,,,,,,,,,,,,,,,
+HCN,1,MLP,42,1.1905612787550153,0.001,,,,constant,,"(64, 32)",42.0,70.0,70.0,70.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,1,MLP,123,1.1979387619162325,0.001,,,,constant,,"(64, 32)",123.0,47.0,47.0,47.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,1,MLP,2026,1.190200540168501,0.001,,,,constant,,"(64, 32)",2026.0,36.0,36.0,36.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,1,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+HCN,1,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+HCN,1,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+HCN,2,ElasticNet,42,1.1445036929237007,0.01,0.5,,,,,,,,,,,,,,,,,,,,
+HCN,2,XGBoost,42,1.1519933393986481,,,400.0,2.0,0.03,3.0,,,,,,,,,,,,,,,,
+HCN,2,MLP,42,1.208499744071112,0.001,,,,constant,,"(64, 32)",42.0,85.0,85.0,85.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,2,MLP,123,1.1747514823671639,0.001,,,,constant,,"(64, 32)",123.0,93.0,93.0,93.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,2,MLP,2026,1.221537048754712,0.001,,,,constant,,"(64, 32)",2026.0,59.0,59.0,59.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+HCN,2,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+HCN,2,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+HCN,2,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+GABAA,0,ElasticNet,42,0.6336868567728142,0.001,0.1,,,,,,,,,,,,,,,,,,,,
+GABAA,0,XGBoost,42,0.5998069273660225,,,300.0,4.0,0.03,5.0,,,,,,,,,,,,,,,,
+GABAA,0,MLP,42,0.645789854632124,0.001,,,,constant,,"(64, 32)",42.0,115.0,115.0,115.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,0,MLP,123,0.627170474668861,0.001,,,,constant,,"(64, 32)",123.0,103.0,103.0,103.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,0,MLP,2026,0.6478370904911738,0.001,,,,constant,,"(64, 32)",2026.0,86.0,86.0,86.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,0,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+GABAA,0,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+GABAA,0,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+GABAA,1,ElasticNet,42,0.698745861089039,0.01,0.9,,,,,,,,,,,,,,,,,,,,
+GABAA,1,XGBoost,42,0.6660789516566884,,,300.0,4.0,0.03,5.0,,,,,,,,,,,,,,,,
+GABAA,1,MLP,42,0.6868324042117291,0.001,,,,constant,,"(64, 32)",42.0,120.0,120.0,120.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,1,MLP,123,0.6856910832730893,0.001,,,,constant,,"(64, 32)",123.0,74.0,74.0,74.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,1,MLP,2026,0.6888642520049493,0.001,,,,constant,,"(64, 32)",2026.0,93.0,93.0,93.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,1,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+GABAA,1,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+GABAA,1,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+GABAA,2,ElasticNet,42,0.6907125785998129,0.001,0.1,,,,,,,,,,,,,,,,,,,,
+GABAA,2,XGBoost,42,0.6509611441538583,,,300.0,4.0,0.03,5.0,,,,,,,,,,,,,,,,
+GABAA,2,MLP,42,0.6818995061677484,0.001,,,,constant,,"(64, 32)",42.0,72.0,72.0,72.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,2,MLP,123,0.6795007862325892,0.001,,,,constant,,"(64, 32)",123.0,65.0,65.0,65.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,2,MLP,2026,0.6722093164900378,0.001,,,,constant,,"(64, 32)",2026.0,64.0,64.0,64.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+GABAA,2,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+GABAA,2,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+GABAA,2,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+iGluR,0,ElasticNet,42,0.7585994130195323,0.01,0.1,,,,,,,,,,,,,,,,,,,,
+iGluR,0,XGBoost,42,0.7277432446054845,,,300.0,4.0,0.03,5.0,,,,,,,,,,,,,,,,
+iGluR,0,MLP,42,0.8171987054535769,0.001,,,,constant,,"(64, 32)",42.0,138.0,138.0,138.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,0,MLP,123,0.8565360891085526,0.001,,,,constant,,"(64, 32)",123.0,121.0,121.0,121.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,0,MLP,2026,0.8142539942206413,0.001,,,,constant,,"(64, 32)",2026.0,146.0,146.0,146.0,42.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,0,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+iGluR,0,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+iGluR,0,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+iGluR,1,ElasticNet,42,0.9034414794027711,0.01,0.1,,,,,,,,,,,,,,,,,,,,
+iGluR,1,XGBoost,42,0.9085526745002678,,,300.0,4.0,0.03,5.0,,,,,,,,,,,,,,,,
+iGluR,1,MLP,42,1.0227044056528494,0.001,,,,constant,,"(64, 32)",42.0,100.0,100.0,100.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,1,MLP,123,0.9969214302521644,0.001,,,,constant,,"(64, 32)",123.0,142.0,142.0,142.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,1,MLP,2026,0.9788602148948018,0.001,,,,constant,,"(64, 32)",2026.0,96.0,96.0,96.0,43.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,1,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+iGluR,1,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+iGluR,1,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+iGluR,2,ElasticNet,42,0.9101191990378408,0.01,0.5,,,,,,,,,,,,,,,,,,,,
+iGluR,2,XGBoost,42,0.8843435025581605,,,300.0,4.0,0.03,5.0,,,,,,,,,,,,,,,,
+iGluR,2,MLP,42,0.9422822842900813,0.001,,,,constant,,"(64, 32)",42.0,144.0,144.0,144.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,2,MLP,123,0.937127122350506,0.001,,,,constant,,"(64, 32)",123.0,133.0,133.0,133.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,2,MLP,2026,0.9480774143904723,0.001,,,,constant,,"(64, 32)",2026.0,167.0,167.0,167.0,44.0,0.2,GroupShuffleSplit,group_aware_manual,adam,relu,0.001,auto,True,False,
+iGluR,2,Dummy,42,,,,,,,,,,,,,,,,,,,,,,,mean
+iGluR,2,SubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0
+iGluR,2,EphysSubclassRidge,42,,1.0,,,,,,,,,,,,,,,,,,,,,ridge_alpha_1.0

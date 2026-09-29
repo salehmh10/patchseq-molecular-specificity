@@ -1,0 +1,7 @@
+subclass,n_cells,n_donors,threshold_eligible,eligible,cell_rank,historical_top2_selected,selected_for_analysis,selection_rule,exclusion_reason
+Lamp5,385,171,True,True,4,False,True,all subclasses with n_cells>=150 and n_donors>=3,
+Pvalb,722,302,True,True,2,True,True,all subclasses with n_cells>=150 and n_donors>=3,
+Serpinf1,15,13,False,False,6,False,False,all subclasses with n_cells>=150 and n_donors>=3,below_cell_threshold
+Sncg,129,56,False,False,5,False,False,all subclasses with n_cells>=150 and n_donors>=3,below_cell_threshold
+Sst,1504,393,True,True,1,True,True,all subclasses with n_cells>=150 and n_donors>=3,
+Vip,655,248,True,True,3,False,True,all subclasses with n_cells>=150 and n_donors>=3,

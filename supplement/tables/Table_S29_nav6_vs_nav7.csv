@@ -1,0 +1,3 @@
+target,gene_n,genes,r2,specificity_percentile,raw_empirical_p,six_test_bh_q,median_spearman_brown,role
+NaV6_frozen,6,Scn1a|Scn3a|Scn8a|Scn9a|Scn10a|Scn11a,0.133223998202821,95.1,0.0499500499500499,0.0999000999000999,0.2071594522591102,frozen_historical_primary_definition
+NaV7_Scn2a1,7,Scn1a|Scn3a|Scn8a|Scn9a|Scn10a|Scn11a|Scn2a1,0.0777087769182867,79.10000000000001,0.2097902097902098,,0.2744441468584567,release_native_symbol_sensitivity_not_in_primary_bh_family

@@ -1,0 +1,21 @@
+parameter,value
+activation,relu
+alpha,0.001
+batch_size,auto
+early_stopping,group_aware_manual
+ensemble_seeds,"[42, 123, 2026]"
+final_refit_iteration_assertion,n_iter_ equals selected_epoch for every saved model
+hidden_layer_sizes,"[64, 32]"
+inner_split_method,GroupShuffleSplit
+inner_validation_fraction,0.2
+inner_validation_grouped,True
+learning_rate,constant
+learning_rate_init,0.001
+maximum_epochs,300
+min_delta,1e-05
+patience,20
+primary_epoch_selection,minimum validation RMSE with patience/min_delta; fresh full outer-train refit
+shuffle,True
+sklearn_early_stopping,False
+solver,adam
+validation_fraction_0_15_in_estimator,inert because sklearn early_stopping is false

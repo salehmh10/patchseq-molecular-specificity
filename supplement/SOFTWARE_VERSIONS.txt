@@ -1,0 +1,24 @@
+ICCKE 2026 SUPPLEMENT: FROZEN ANALYSIS SOFTWARE VERSIONS
+
+Operating system: Windows-11-10.0.22621-SP0
+Python: 3.12.3
+NumPy: 2.2.6
+pandas: 2.2.2
+SciPy: 1.13.0
+scikit-learn: 1.9.0
+XGBoost: 3.4.0
+SHAP: 0.52.0
+matplotlib: 3.8.4
+pyarrow: 25.0.0
+h5py: 3.14.0
+joblib: 1.5.3
+PyYAML: 6.0.1
+pytest: 9.1.1
+
+Sources (repository-relative):
+project/RUNTIME.md  SHA256 a50903043f5fd2ae42b0832b4b12b471cddc3eaeb20555b7539e9ad131b71037
+project/requirements.txt  SHA256 a85360eba83ff663b463113c00b43f87d105e5897645053dee107de5ab61802f
+project/results/revision_v3/section2/integrity/integrity_gate.json  SHA256 d2028f78f34928435f52f9e50d52fd406c80eac5f922dbf9049e50d6ae73320b
+
+This record transcribes the frozen analysis environment. It intentionally does
+not substitute package versions from the later supplement-assembly session.
