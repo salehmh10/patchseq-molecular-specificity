@@ -1,0 +1,22 @@
+name: Reproducibility issue
+description: Report a discrepancy in inputs, outputs, or scientific reproduction
+title: "[Reproduction] "
+body:
+  - type: textarea
+    id: stage
+    attributes:
+      label: Stage and commands
+    validations:
+      required: true
+  - type: textarea
+    id: discrepancy
+    attributes:
+      label: Expected and observed results
+      description: Identify table, metric, configuration, and source checksums.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and diagnostic output
+      description: Include versions and commit; remove credentials and personal paths.

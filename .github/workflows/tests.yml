@@ -1,0 +1,35 @@
+name: tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      MPLBACKEND: Agg
+      PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements-ci.txt
+      - name: Check environment
+        run: python -m pip check
+      - name: Syntax and repository validation
+        run: |
+          python -m compileall -q src scripts tests
+          python scripts/validate_repository.py
+          cffconvert --validate
+      - name: Synthetic and package tests
+        run: python -m pytest -q
+      - name: Offline smoke test
+        run: python scripts/smoke_test.py
+      - name: Verify packaged artifacts
+        run: python scripts/verify_checksums.py --scope all
