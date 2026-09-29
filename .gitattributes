@@ -1,4 +1,7 @@
-* text=auto eol=lf
+# Preserve checksummed artifacts exactly across operating systems.
+* -text
+*.py text eol=lf
+*.md text eol=lf
 *.pdf binary
 *.png binary
 *.parquet binary

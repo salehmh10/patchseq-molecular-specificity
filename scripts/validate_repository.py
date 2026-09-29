@@ -15,6 +15,9 @@ def validate() -> dict[str, int]:
                 'CITATION.bib', '.zenodo.json', 'DATA_LICENSES.md', 'requirements.txt',
                 'data/MANIFEST.tsv', 'data/DATA_PROVENANCE.tsv',
                 'supplement/Supplementary_Material.pdf', '.github/workflows/tests.yml']
+    required.extend('docs/' + name + '.md' for name in [
+        'METHODS_OVERVIEW', 'REPRODUCIBILITY', 'DATA_PROVENANCE', 'VALIDATION',
+        'RESULTS_OVERVIEW', 'REPOSITORY_STRUCTURE', 'PUBLIC_RELEASE_CHECKLIST'])
     for name in required:
         if not (ROOT / name).is_file():
             raise ValueError(f'Missing required file: {name}')
