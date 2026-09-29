@@ -20,6 +20,8 @@ future maintainer actions; they are not performed by the candidate workflow.
 - Use the DOI actually assigned by Zenodo. Add the real version and/or concept
   DOI to the citation files as appropriate; never substitute an invented DOI.
 
-`.zenodo.json` prepares version 1.0.0 metadata for that later release. It does
-not activate an integration or assign a DOI. No Zenodo connection is part of
-the private candidate.
+`.zenodo.json` records the current candidate version, 1.0.0-rc1. Before a final
+public release, update all version metadata together to 1.0.0 and create the
+approved `v1.0.0` tag on the validated commit. The metadata file does not
+activate an integration or assign a DOI. No Zenodo connection is part of the
+private candidate.

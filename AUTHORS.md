@@ -1,5 +1,8 @@
 # Authors
 
+**Testing Molecular Specificity in Electrophysiology-to-Transcript Prediction with Matched Negative Controls**
+— version 1.0.0-rc1.
+
 | Author | Affiliation |
 |---|---|
 | Saleh Mohammadhasani | Department of Electrical Engineering, Sharif University of Technology, Tehran, Iran |

@@ -2,6 +2,7 @@
 from __future__ import annotations
 import importlib
 import json
+import re
 import sys
 from pathlib import Path
 import yaml
@@ -14,7 +15,8 @@ def validate() -> dict[str, int]:
     required = ['README.md', 'LICENSE', 'NOTICE', 'AUTHORS.md', 'CITATION.cff',
                 'CITATION.bib', '.zenodo.json', 'DATA_LICENSES.md', 'requirements.txt',
                 'data/MANIFEST.tsv', 'data/DATA_PROVENANCE.tsv',
-                'supplement/Supplementary_Material.pdf', '.github/workflows/tests.yml']
+                'supplement/Supplementary_Material.pdf',
+                'supplement/REPRODUCTION_COMMANDS.txt', '.github/workflows/tests.yml']
     required.extend('docs/' + name + '.md' for name in [
         'METHODS_OVERVIEW', 'REPRODUCIBILITY', 'DATA_PROVENANCE', 'VALIDATION',
         'RESULTS_OVERVIEW', 'REPOSITORY_STRUCTURE', 'PUBLIC_RELEASE_CHECKLIST'])
@@ -33,10 +35,40 @@ def validate() -> dict[str, int]:
     zenodo = json.loads((ROOT / '.zenodo.json').read_text(encoding='utf-8'))
     if cff['cff-version'] != '1.2.0' or cff['license'] != 'MIT':
         raise ValueError('Invalid citation version or code license')
+    version, title = cff['version'], cff['title']
+    if not re.fullmatch(r'\d+\.\d+\.\d+(?:-rc\d+)?', version):
+        raise ValueError('Invalid software version')
+    if title != ('Testing Molecular Specificity in Electrophysiology-to-Transcript '
+                 'Prediction with Matched Negative Controls'):
+        raise ValueError('Unexpected project title')
+    bib = (ROOT / 'CITATION.bib').read_text(encoding='utf-8')
+    for field, expected_value in [('version', version), ('title', title)]:
+        match = re.search(r'(?m)^\s*' + field + r'\s*=\s*\{([^{}]+)\}', bib)
+        if zenodo.get(field) != expected_value or not match or match[1] != expected_value:
+            raise ValueError(f'Citation {field} mismatch')
+    for name in ['AUTHORS.md', 'README.md', 'supplement/REPRODUCTION_COMMANDS.txt']:
+        content = ' '.join((ROOT / name).read_text(encoding='utf-8').split())
+        if title not in content or not re.search(r'(?i)version[: ]+\b' + re.escape(version) + r'\b', content):
+            raise ValueError(f'Project title or version missing from {name}')
+    changelog = (ROOT / 'CHANGELOG.md').read_text(encoding='utf-8')
+    latest = re.search(r'(?m)^## \[([^]]+)\] - (\d{4}-\d{2}-\d{2})$', changelog)
+    if not latest or latest[1] != version:
+        raise ValueError('Latest changelog version mismatch or missing date')
+    if '-rc' in version and ('doi' in cff or 'doi' in zenodo):
+        raise ValueError('A DOI has not been assigned to this candidate')
     expected = [('Saleh', 'Mohammadhasani'), ('Reza', 'Kazemeynimoghaddam'),
                 ('Amirreza', 'Khadempir'), ('Pedram', 'Hamidirad'), ('Amirreza', 'Dehghan Nayeri')]
     if [(a['given-names'], a['family-names']) for a in cff['authors']] != expected:
         raise ValueError('Author order mismatch')
+    affiliations = [
+        'Department of Electrical Engineering, Sharif University of Technology, Tehran, Iran',
+        'Department of Electrical Engineering, Sharif University of Technology, Tehran, Iran',
+        'Department of Computer Engineering, Ferdowsi University of Mashhad, Mashhad, Iran',
+        'Department of Chemistry, Sharif University of Technology, Tehran, Iran',
+        'Department of Chemistry, Sharif University of Technology, Tehran, Iran',
+    ]
+    if [a['affiliation'] for a in cff['authors']] != affiliations:
+        raise ValueError('Author affiliation mismatch')
     positions = {'AUTHORS.md': [], 'README.md': [], 'CITATION.bib': []}
     for author, creator in zip(cff['authors'], zenodo['creators'], strict=True):
         given, family = author['given-names'], author['family-names']

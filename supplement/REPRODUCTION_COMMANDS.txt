@@ -1,0 +1,49 @@
+Testing Molecular Specificity in Electrophysiology-to-Transcript Prediction with Matched Negative Controls
+Version: 1.0.0-rc1
+
+Run from the repository root with an activated Python 3.12 environment.
+See docs/REPRODUCIBILITY.md for prerequisites and expected outputs.
+
+OFFLINE REPOSITORY VALIDATION (no raw-data download)
+Dependency installation requires access to the Python package index.
+
+python -m pip install -r requirements-ci.txt
+python -m pip check
+python -m compileall -q src scripts tests
+python scripts/validate_repository.py
+cffconvert --validate
+python scripts/smoke_test.py
+python -m pytest -q
+python scripts/verify_checksums.py --scope all
+
+RAW-DATA ACQUISITION (explicit network access and local storage required)
+
+python scripts/00_download.py --include-transcriptomics
+python scripts/verify_checksums.py --scope data
+
+FULL ANALYSIS (computationally intensive; separate from synthetic validation)
+
+python scripts/reproduce_paper.py --stage all
+
+The individual stages, in execution order, are:
+python scripts/reproduce_paper.py --stage primary
+python scripts/reproduce_paper.py --stage robustness
+python scripts/run_specificity_controls.py --mode full
+python scripts/run_model_comparison.py --mode full
+python scripts/run_model_comparison.py --mode resume
+python scripts/run_extended_controls.py --mode full
+
+REFERENCE INTEGRATION TESTS
+These require the complete frozen local reference artifacts. New-run outputs
+alone do not replace the original byte-level reference expectations.
+
+python -m pytest -q --run-integration -m integration
+
+SUPPLEMENT COMPILATION (pdflatex required)
+Writes build/supplement; the distributed reference PDF remains unchanged.
+
+python scripts/build_supplement.py
+
+The release ZIP contains the data-free source package and complete Table S44.
+Raw third-party data are not redistributed. No full scientific rerun is
+implied by passing the offline validation commands above.

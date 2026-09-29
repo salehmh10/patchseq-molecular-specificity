@@ -17,6 +17,8 @@ root. `CHECKSUMS.sha256` covers every distributed file in this directory except
 the checksum list itself. The full archive has a separate internal checksum
 list that additionally covers Table S44. The archive also contains a complete
 data-free source snapshot so its validation commands can run after extraction.
+`REPRODUCTION_COMMANDS.txt` lists offline validation and full-analysis commands;
+run them from the extracted repository root.
 
 Run `python scripts/build_supplement.py` with `pdflatex` installed to compile
 three passes into `build/supplement/`. The checked-in PDF remains unchanged.

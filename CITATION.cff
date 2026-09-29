@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: If you use this software, please cite this repository and the associated
   paper.
-title: Patch-seq Molecular Specificity Analysis
+title: Testing Molecular Specificity in Electrophysiology-to-Transcript Prediction with Matched Negative Controls
 type: software
 authors:
 - family-names: Mohammadhasani

@@ -147,11 +147,12 @@ describe compilation and checksum verification.
 
 ## Citation
 
-Saleh Mohammadhasani; Reza Kazemeynimoghaddam; Amirreza Khadempir; Pedram Hamidirad; Amirreza Dehghan Nayeri. (2026). *Patch-seq Molecular Specificity Analysis*
+Saleh Mohammadhasani; Reza Kazemeynimoghaddam; Amirreza Khadempir; Pedram Hamidirad; Amirreza Dehghan Nayeri. (2026). *Testing Molecular Specificity in Electrophysiology-to-Transcript Prediction with Matched Negative Controls*
 (version 1.0.0-rc1). https://github.com/salehmh10/patchseq-molecular-specificity
 
 Machine-readable citations are provided in [CITATION.cff](CITATION.cff) and
 [CITATION.bib](CITATION.bib). No DOI has been assigned in this repository.
+Author affiliations are listed in [AUTHORS.md](AUTHORS.md).
 
 ## License
 

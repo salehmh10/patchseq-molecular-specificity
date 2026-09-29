@@ -1,7 +1,7 @@
 {
-  "title": "Patch-seq Molecular Specificity Analysis",
+  "title": "Testing Molecular Specificity in Electrophysiology-to-Transcript Prediction with Matched Negative Controls",
   "upload_type": "software",
-  "version": "1.0.0",
+  "version": "1.0.0-rc1",
   "license": "MIT",
   "description": "Reproducible analysis and matched-negative-control framework for testing molecular specificity in electrophysiology-to-transcript prediction using Allen Patch-seq data.",
   "creators": [
