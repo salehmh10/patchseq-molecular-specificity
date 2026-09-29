@@ -1,0 +1,170 @@
+schema_version: "1.0"
+pipeline_version: "revision-v3-section4-1"
+seed: 42
+
+paths:
+  modeling_table: data/processed/modeling_table.parquet
+  frozen_folds: results/tables/cv_folds.csv
+  crosswalk: results/tables/cell_id_crosswalk.csv
+  raw_count_archive: data/raw/20200513_Mouse_PatchSeq_Release_count.v2.csv.tar
+  library_sizes: data/interim/library_sizes.csv
+  module_cpm: data/interim/module_gene_cpm.parquet
+  gene_modules: config/gene_modules.yaml
+  ephys_features: config/ephys_features.yaml
+  primary_oof: results/predictions/oof_predictions.parquet
+  primary_shap: results/shap/oof_shap.parquet
+  section1_manifest: results/revision_v3/specificity/ARTIFACT_MANIFEST.csv
+  section1_checkpoint: logs/revision_v3/specificity/checkpoints.json
+  section1_matched_sets: results/revision_v3/specificity/random_controls/matched_gene_sets.json
+  section1_matching_assignments: results/revision_v3/specificity/random_controls/matching_assignments.parquet
+  section1_matching_quality: results/revision_v3/specificity/random_controls/matching_quality.csv
+  section1_gene_qc: results/revision_v3/specificity/random_controls/all_gene_expression_qc.parquet
+  section1_control_targets: results/revision_v3/specificity/random_controls/control_targets
+  section1_technical_targets: results/revision_v3/specificity/technical_targets/transcriptomic_qc_targets.csv
+  section1_internal_consistency: results/revision_v3/specificity/reliability/module_internal_consistency.csv
+  section1_raw_correlation: results/revision_v3/specificity/target_correlations/raw_spearman.csv
+  section1_adjusted_correlation: results/revision_v3/specificity/target_correlations/technical_adjusted_spearman.csv
+  section1_centered_correlation: results/revision_v3/specificity/target_correlations/subclass_centered_spearman.csv
+  section1_nav7_target: results/revision_v3/specificity/scn2a_audit/nav_alias_target.parquet
+  section2_manifest: results/revision_v3/section2/artifact_manifest.csv
+  section2_checkpoint: logs/revision_v3/section2/checkpoints.json
+  section2_resume: logs/revision_v3/section2/resume_run.json
+  revised_features: results/revision_v3/section2/config/revised_23_features.json
+  section2_oof: results/revision_v3/section2/oof/revised_oof.parquet
+  section2_performance: results/revision_v3/section2/tables/pooled_metrics.csv
+  section2_hyperparameters: results/revision_v3/section2/tables/fitted_hyperparameters.csv
+  section2_adjusted_oof: results/revision_v3/section2/specificity_bridge/adjusted/adjusted_target_oof.parquet
+  section2_adjusted_performance: results/revision_v3/section2/specificity_bridge/adjusted/adjusted_target_performance.csv
+  section2_adjusted_hyperparameters: results/revision_v3/section2/specificity_bridge/adjusted/adjusted_target_hyperparameters.csv
+  section2_old_control_oof: results/revision_v3/section2/specificity_bridge/random_control_oof
+  section2_old_control_performance: results/revision_v3/section2/specificity_bridge/random_control_performance.parquet
+  section2_cell_permutations: results/revision_v3/section2/permutations/cell_stratified.csv
+  section2_donor_permutations: results/revision_v3/section2/permutations/donor_residual.csv
+  section2_grouped_shap: results/revision_v3/section2/attribution/grouped_shap.parquet
+  section2_en_grouped: results/revision_v3/section2/attribution/en_grouped_coefficients.csv
+  section2_concordance: results/revision_v3/section2/attribution/concordance.csv
+  section2_feature_components: results/revision_v3/section2/attribution/feature_components.csv
+  section2_mlp_configuration: results/revision_v3/section2/mlp/mlp_configuration.json
+  robustness_logo: results/robustness_v2/tables/module_loo_refit_performance.csv
+  manuscript: MANUSCRIPT.md
+
+expected:
+  cohort_n: 3410
+  donor_n: 871
+  outer_folds: 3
+  revised_feature_n: 23
+  modules: [NaV, Kv, CaV, HCN, GABAA, iGluR]
+  primary_oof_sha256: 9d0fb9edb89b3133fd1e356cbc437ca7aa3b985df4f810805b0cce74b96a4217
+  primary_shap_sha256: a6a0c7dc5df16106882c1da74faa043e8a54ccf82d2a73325cd4eabf3094453b
+  section1_signature: 8b8c91490175136c8e6548aa8670974a3043a0884993ea11fdb9c406651dc21b
+  section2_signature: 8f1427c637b1f0b15e62ddbf65b8c5aee5648eaaf9f2908336a1f3f0be7e6e8a
+  section1_manifest_sha256: 1cd9397323b7f6f758def2da60d72d1df11c20145c6ff64628e6ab237381581b
+  section1_manifest_rows: 1480
+  section2_manifest_sha256: 03538534a5a5edf498d8db9f58151dbe48c6d72f776c634702e83ed596ab3c83
+  section2_manifest_rows: 2069
+  modeling_table_sha256: 48eac7bd7b08b4e44ed2de0f0deefb17d2a371a3ba4fdfbd456339aa672d7215
+  frozen_folds_sha256: 3a9fa9b196ceadf45426df01b53be6aeb2c906413b4ffdd56b176ddb8fc52649
+  gene_modules_sha256: 166769a9fe8de934a835ceef1aae8b6e7fc262e90dff515e257d5521f45f9560
+  old_matched_sets_sha256: 9c04b8fd8b07e1f1a2db55ab034a64524519b1964bf99aab47ae9b9db5f9d3ba
+  old_matching_assignments_sha256: 4af496b8d402e17ce58243196bed8af8088bb86b43dd52d4e253a893563866f4
+  old_matching_quality_sha256: eaa71917fa1ed2ca6b87b91c61dd4624a6853af8602fb4ec8a244c7ff73ce5cc
+  section2_oof_sha256: 7be9364f555cc2b40a789bfca50cd64552644a7fa369f91d2106f2a321408c87
+  section2_performance_sha256: c04ac16c4cd54d29b4b19c78c6d18807c2bd060763146aa5aeecbd7003561943
+  section2_hyperparameters_sha256: ad50bebca21dae6b1c92ff21cd8fc21366f59055673c8078f317889034aa85fd
+  gene_qc_sha256: 69d7cb5c737c9647312b8d0cc5c18096dcb3b0736c14c2aab43701d36fd7746e
+  technical_targets_sha256: 3f8877780871fe4a1ce855b3b8fc5e7b2d0997c4f75bb7b36684145c57c4444a
+  nav7_target_sha256: 1addae1f500b08ac2c36884c7a65b941234fa515db6ccec94c3bcdecb742599f
+  manuscript_sha256: 8b0cd4076c46f774cc915baf807aaa04e6b6ac2bd7892630bdcfb03527458610
+  control_target_sha256:
+    NaV: 9b25fc7a16aad41491344628db0b191b655738366de08c2d15a1b9c588a612ac
+    Kv: a888e0d5b111a039622363563a3142852f426b7a84e3a13c32ba9cba1af2967d
+    CaV: 21749d9221b0062f31925dfd98a81068b6170e2d868b73d12effc8b23bc65ae7
+    HCN: 0e60142573978e0467bafd51066008fef76543c12cf110f7b19ab43b742b5aaf
+    GABAA: ed9bb248f8834db69ed93c09165cc20e0853e411a9c4897e4674c794520b0333
+    iGluR: 5c53947fd64125c3dc61b470f4aaced8a3e9077ce6e4e45b676d7fc9e8bc99fe
+
+duplicate_policy:
+  retain: rheobase_i
+  drop: stimulus_amplitude_0_long_square
+  missing_count: 11
+  complete_pairs: 3399
+  exhaustive_pair_scan: true
+
+matching:
+  controls_per_primary_module: 1000
+  existing_controls_per_module: 200
+  controls_per_nav7: 1000
+  checkpoint_every: 10
+  nearest_neighbor_pool: 128
+  maximum_attempts_per_set: 200
+  max_per_gene_standardized_distance: 0.50
+  max_mean_per_gene_standardized_distance: 0.25
+  max_module_abs_standardized_mean_difference: 0.10
+  max_module_abs_standardized_detection_difference: 0.10
+
+models:
+  elastic_net:
+    alpha: [0.001, 0.01, 0.1, 1.0]
+    l1_ratio: [0.1, 0.5, 0.9]
+    max_iter: 5000
+  xgboost:
+    grid:
+      - {n_estimators: 250, max_depth: 2, learning_rate: 0.05, reg_lambda: 1.0}
+      - {n_estimators: 400, max_depth: 2, learning_rate: 0.03, reg_lambda: 3.0}
+      - {n_estimators: 250, max_depth: 3, learning_rate: 0.05, reg_lambda: 3.0}
+      - {n_estimators: 300, max_depth: 4, learning_rate: 0.03, reg_lambda: 5.0}
+    subsample: 0.8
+    colsample_bytree: 0.8
+    objective: reg:squarederror
+    tree_method: hist
+    n_jobs: 1
+    random_state: 42
+  mlp:
+    hidden_layer_sizes: [64, 32]
+    activation: relu
+    solver: adam
+    learning_rate: constant
+    learning_rate_init: 0.001
+    alpha: 0.001
+    batch_size: auto
+    shuffle: true
+    ensemble_seeds: [42, 123, 2026]
+    maximum_epochs: 300
+    patience: 20
+    min_delta: 0.00001
+  comparators:
+    dummy_strategy: mean
+    ridge_alpha: 1.0
+
+inference:
+  bh_q: 0.05
+  raw_family_n: 6
+  residual_family_n: 6
+  percentile_ties: less_equal
+
+reliability:
+  maximum_partitions_per_control: 100
+  score_dtype: float32
+
+retuning:
+  controls_per_module: 50
+  subset_base_seed: 42
+
+residualization:
+  nuisance_covariates: [log10_total_counts, log10_genes_detected]
+  nuisance_model: linear_regression
+  control_configuration_source: observed_adjusted_target_module_fold
+
+smoke:
+  module: GABAA
+  generated_control_ids: [200, 201, 202, 203, 204, 205, 206, 207, 208, 209]
+  fold: 0
+  reliability_controls: 5
+  retuned_controls: 2
+  residual_controls: 2
+
+outputs:
+  results: results/revision_v3/section4
+  figures: figures/revision_v3/section4
+  logs: logs/revision_v3/section4
+  models: models/revision_v3/section4

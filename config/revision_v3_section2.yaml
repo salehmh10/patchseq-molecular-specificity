@@ -1,0 +1,163 @@
+schema_version: "1.0"
+pipeline_version: "revision-v3-section2-1"
+seed: 42
+
+paths:
+  modeling_table: data/processed/modeling_table.parquet
+  frozen_folds: results/tables/cv_folds.csv
+  module_scores: results/tables/module_scores.parquet
+  ephys_features: config/ephys_features.yaml
+  primary_oof: results/predictions/oof_predictions.parquet
+  primary_shap: results/shap/oof_shap.parquet
+  primary_hyperparameters: results/tables/fitted_hyperparameters.csv
+  manuscript: MANUSCRIPT.md
+  section1_manifest: results/revision_v3/specificity/ARTIFACT_MANIFEST.csv
+  section1_checkpoint: logs/revision_v3/specificity/checkpoints.json
+  section1_matched_sets: results/revision_v3/specificity/random_controls/matched_gene_sets.json
+  section1_matching_quality: results/revision_v3/specificity/random_controls/matching_quality.csv
+  section1_matching_assignments: results/revision_v3/specificity/random_controls/matching_assignments.parquet
+  section1_control_targets: results/revision_v3/specificity/random_controls/control_targets
+  section1_technical_targets: results/revision_v3/specificity/technical_targets/transcriptomic_qc_targets.csv
+  section1_residual_targets: results/revision_v3/specificity/technical_adjustment/technical_residualized_targets.parquet
+  robustness_duplicate_oof: results/robustness_v2/predictions/duplicate_removed_oof_predictions.parquet
+  robustness_duplicate_shap: results/robustness_v2/shap/duplicate_removed_oof_shap.parquet
+  robustness_duplicate_fit_manifest: results/robustness_v2/tables/duplicate_removed_fit_manifest.csv
+  robustness_repeated_oof: results/robustness_v2/tables/repeated_group_cv.csv
+
+expected:
+  cohort_n: 3410
+  donor_n: 871
+  folds: 3
+  primary_features: 24
+  revised_features: 23
+  modules: [NaV, Kv, CaV, HCN, GABAA, iGluR]
+  primary_oof_sha256: 9d0fb9edb89b3133fd1e356cbc437ca7aa3b985df4f810805b0cce74b96a4217
+  primary_shap_sha256: a6a0c7dc5df16106882c1da74faa043e8a54ccf82d2a73325cd4eabf3094453b
+  modeling_table_sha256: 48eac7bd7b08b4e44ed2de0f0deefb17d2a371a3ba4fdfbd456339aa672d7215
+  frozen_folds_sha256: 3a9fa9b196ceadf45426df01b53be6aeb2c906413b4ffdd56b176ddb8fc52649
+  module_scores_sha256: 2e11ab054d18d97838387d0e0d0e365f539041846111badc06b3a4e390868980
+  ephys_features_sha256: cc96d8692efe8f7f0ce51fc1c4d070bd58924af1252f08c423c053c3620f34c4
+  primary_hyperparameters_sha256: 11979ef922d8bd59971f417de0a3fc596f55b28dcadeddb6717e357227b95fac
+  manuscript_sha256: 8b0cd4076c46f774cc915baf807aaa04e6b6ac2bd7892630bdcfb03527458610
+  section1_signature: 8b8c91490175136c8e6548aa8670974a3043a0884993ea11fdb9c406651dc21b
+  section1_manifest_sha256: 1cd9397323b7f6f758def2da60d72d1df11c20145c6ff64628e6ab237381581b
+  section1_manifest_rows: 1480
+  section1_matched_sets_sha256: 9c04b8fd8b07e1f1a2db55ab034a64524519b1964bf99aab47ae9b9db5f9d3ba
+  section1_matching_quality_sha256: eaa71917fa1ed2ca6b87b91c61dd4624a6853af8602fb4ec8a244c7ff73ce5cc
+  section1_matching_assignments_sha256: 4af496b8d402e17ce58243196bed8af8088bb86b43dd52d4e253a893563866f4
+  section1_technical_targets_sha256: 3f8877780871fe4a1ce855b3b8fc5e7b2d0997c4f75bb7b36684145c57c4444a
+  section1_residual_targets_sha256: 33d0c84b7c4098626037d74654c628947fd557532a5f0db7fd15b48f0db3992d
+  robustness_duplicate_oof_sha256: 5b557a15a7e1d54281f6f0bcc207c0347e93acd330dae4b397642bedc6d1eab6
+  robustness_duplicate_shap_sha256: a7102894b70eee44e64c9742a4849db894cf8fc3c2e5bbabfce6de36f0e73098
+  robustness_duplicate_fit_manifest_sha256: 9f9bc86966691f5c861b8237d3e01f3d437e76670af7049c458e50d9b1fb4ef8
+  robustness_repeated_oof_sha256: 1f0abb1b9bd78e0800dd094b70a7af0d54b7b639afd1b3644f98e722a5a0c6e7
+  control_target_sha256:
+    CaV: 21749d9221b0062f31925dfd98a81068b6170e2d868b73d12effc8b23bc65ae7
+    GABAA: ed9bb248f8834db69ed93c09165cc20e0853e411a9c4897e4674c794520b0333
+    HCN: 0e60142573978e0467bafd51066008fef76543c12cf110f7b19ab43b742b5aaf
+    iGluR: 5c53947fd64125c3dc61b470f4aaced8a3e9077ce6e4e45b676d7fc9e8bc99fe
+    Kv: a888e0d5b111a039622363563a3142852f426b7a84e3a13c32ba9cba1af2967d
+    NaV: 9b25fc7a16aad41491344628db0b191b655738366de08c2d15a1b9c588a612ac
+
+duplicate_policy:
+  retain: rheobase_i
+  drop: stimulus_amplitude_0_long_square
+  missing_count: 11
+  complete_pairs: 3399
+  exhaustive_pair_scan: true
+
+models:
+  inner_validation_fraction: 0.20
+  inner_split_method: GroupShuffleSplit
+  elastic_net:
+    alpha: [0.001, 0.01, 0.1, 1.0]
+    l1_ratio: [0.1, 0.5, 0.9]
+    max_iter: 5000
+    random_state: 42
+  xgboost:
+    grid:
+      - {n_estimators: 250, max_depth: 2, learning_rate: 0.05, reg_lambda: 1.0}
+      - {n_estimators: 400, max_depth: 2, learning_rate: 0.03, reg_lambda: 3.0}
+      - {n_estimators: 250, max_depth: 3, learning_rate: 0.05, reg_lambda: 3.0}
+      - {n_estimators: 300, max_depth: 4, learning_rate: 0.03, reg_lambda: 5.0}
+    subsample: 0.8
+    colsample_bytree: 0.8
+    objective: reg:squarederror
+    tree_method: hist
+    n_jobs: 1
+    random_state: 42
+  mlp:
+    hidden_layer_sizes: [64, 32]
+    activation: relu
+    solver: adam
+    learning_rate: constant
+    learning_rate_init: 0.001
+    alpha: 0.001
+    batch_size: auto
+    shuffle: true
+    ensemble_seeds: [42, 123, 2026]
+    maximum_epochs: 300
+    patience: 20
+    min_delta: 0.00001
+    early_stopping: group_aware_manual
+    sklearn_early_stopping: false
+  comparators:
+    dummy_strategy: mean
+    ridge_alpha: 1.0
+
+inference:
+  bootstrap_draws: 5000
+  permutation_draws: 5000
+  ci: [0.025, 0.975]
+  bh_family_n: 18
+  bh_q: 0.05
+  common_donor_plan_across_contrasts: true
+  r2_tail: inclusive_zero_plus_one_two_sided
+
+within_subclass:
+  minimum_cells: 150
+  minimum_donors: 3
+  analyze_all_threshold_eligible: true
+  historical_top_two: [Sst, Pvalb]
+  folds: 3
+
+repeated_cv:
+  seeds: [42, 123, 2026, 31415, 27182]
+  models: [ElasticNet, XGBoost, MLP]
+  fold_method: StratifiedGroupKFold
+  fixed_classical_configuration_source: revised_primary_fold0
+
+interpretability:
+  shap_constructor: shap.TreeExplainer(estimator)
+  shap_call: explainer(transformed, check_additivity=False)
+  shap_default_requested: auto_argument_omitted
+  shap_resolved_required: tree_path_dependent
+  shap_model_output_required: raw
+  correlation_method: spearman_pairwise_complete
+  correlation_threshold_strict: 0.90
+  group_aggregation: sum_absolute
+  cross_family_aggregation: equal_fold_mean
+
+specificity_bridge:
+  controls_per_module: 200
+  refit_features: 23
+  control_xgboost_retune: false
+  fixed_configuration_source: revised_observed_module_fold
+  smoke_module: GABAA
+  smoke_controls: 5
+  run_adjusted_xgboost: true
+
+smoke:
+  modules: [GABAA]
+  folds: [0]
+  mlp_seeds: [42]
+  repeated_seeds: [42]
+  bootstrap_draws: 50
+  permutation_draws: 50
+  within_subclasses: [Sst]
+
+outputs:
+  results: results/revision_v3/section2
+  figures: figures/revision_v3/section2
+  logs: logs/revision_v3/section2
+  models: models/revision_v3/section2

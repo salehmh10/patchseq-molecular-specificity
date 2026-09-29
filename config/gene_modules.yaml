@@ -1,0 +1,224 @@
+schema_version: "1.0"
+module_set:
+  name: "Mouse ion-channel and ionotropic-receptor forming-subunit modules"
+  version: "mm-channel-modules-v1.0.0"
+  frozen_at: "2026-08-11T14:37:43+04:30"
+  frozen_before_modeling: true
+  species: "Mus musculus"
+  taxon_id: 10090
+  symbol_case: "official mouse gene symbols (initial capital, remaining letters lowercase)"
+  nomenclature_authority:
+    name: "Mouse Genome Informatics (MGI)"
+    url: "https://www.informatics.jax.org/nomen/"
+  membership_authority:
+    name: "IUPHAR/BPS Guide to PHARMACOLOGY"
+    url: "https://www.guidetopharmacology.org/GRAC/ReceptorFamiliesForward?type=IC"
+  scope: >-
+    Protein-coding channel-forming alpha subunits or ionotropic receptor-forming
+    subunits. Auxiliary trafficking, anchoring and regulatory proteins are not
+    included. Tissue expression in the study cohort was not used to choose genes.
+
+scoring_contract:
+  primary_score: "row mean of log2(CPM + 1) over requested genes present in the full transcriptomic matrix"
+  missing_gene_policy: >-
+    Intersect by exact official mouse symbol, record requested/present/missing
+    genes, and never silently redefine the frozen requested set. Fail the module
+    if fewer than 2 requested genes or less than 25% of requested genes are
+    present; warn below 50% coverage.
+  normalization_guard: "Do not recompute CPM when the input is already CPM."
+  zero_handling: "Retain measured zeros; do not treat zero expression as a missing value."
+  gene_weighting: "equal weight"
+
+module_dominance_qc:
+  compute_on: "log2(CPM + 1), after the final cell match and before modeling"
+  required_outputs:
+    - "Pearson and Spearman correlation of each gene with the full module score"
+    - "Pearson and Spearman correlation of each gene with the leave-one-gene-out module score"
+    - "covariance contribution share: Cov(x_g / n, module_score) / Var(module_score)"
+    - "Spearman(module_score, leave-one-gene-out score) for every gene"
+    - "gene variance, nonzero-cell fraction, and module gene coverage"
+  flag_extreme_dominance_if_any:
+    - "a single positive covariance contribution share is >= 0.50"
+    - "removing one gene lowers score-vs-LOO Spearman correlation below 0.90"
+    - "one gene has absolute gene-vs-LOO Spearman >= 0.90 and at least twice the variance of the median module gene"
+  action: "Flag and report; do not remove or alter a frozen module automatically."
+  optional_sensitivity: "leave-one-dominant-gene-out scoring if runtime remains"
+
+local_mat_header_audit:
+  file: "DATA/PS_v5_beta_0-4_pc_scaled_ipfx_eqTE.mat"
+  path_base: "workspace root"
+  variable: "gene_id"
+  gene_universe_n: 1252
+  audited_at: "2026-08-11T14:37:43+04:30"
+  interpretation: >-
+    This is a feature-selected processed matrix, not the full transcriptome. Its
+    coverage is diagnostic only and must not change the frozen requested modules.
+
+modules:
+  NaV:
+    display_name: "neuronal voltage-gated sodium-channel alpha subunits"
+    requested_n: 7
+    genes: [Scn1a, Scn2a, Scn3a, Scn8a, Scn9a, Scn10a, Scn11a]
+    inclusion_rule: >-
+      Mammalian NaV1 alpha-subunit genes with established neuronal expression;
+      each alpha subunit contains the ion-conducting pore.
+    exclusions:
+      - "Scn4a: pore-forming NaV1.4, but primarily skeletal muscle rather than neuronal"
+      - "Scn5a: pore-forming NaV1.5, but primarily cardiac rather than neuronal"
+      - "Scn7a: atypical NaX sodium-level sensor, not one of the nine functionally expressed voltage-gated NaV1 channels"
+      - "Scn1b-Scn4b: non-pore-forming beta/accessory subunits"
+    sources:
+      - "https://www.guidetopharmacology.org/GRAC/FamilyIntroductionForward?familyId=82"
+      - "https://pubmed.ncbi.nlm.nih.gov/16382098/"
+
+  Kv:
+    display_name: "voltage-gated potassium-channel alpha subunits"
+    requested_n: 40
+    genes:
+      - Kcna1
+      - Kcna2
+      - Kcna3
+      - Kcna4
+      - Kcna5
+      - Kcna6
+      - Kcna7
+      - Kcna10
+      - Kcnb1
+      - Kcnb2
+      - Kcnc1
+      - Kcnc2
+      - Kcnc3
+      - Kcnc4
+      - Kcnd1
+      - Kcnd2
+      - Kcnd3
+      - Kcnf1
+      - Kcng1
+      - Kcng2
+      - Kcng3
+      - Kcng4
+      - Kcnq1
+      - Kcnq2
+      - Kcnq3
+      - Kcnq4
+      - Kcnq5
+      - Kcns1
+      - Kcns2
+      - Kcns3
+      - Kcnv1
+      - Kcnv2
+      - Kcnh1
+      - Kcnh2
+      - Kcnh3
+      - Kcnh4
+      - Kcnh5
+      - Kcnh6
+      - Kcnh7
+      - Kcnh8
+    inclusion_rule: >-
+      The 40 IUPHAR Kv1-Kv12 alpha-subunit genes. Each encodes a 6TM pore-domain
+      alpha subunit; Kv5, Kv6, Kv8 and Kv9 are electrically silent alone but are
+      retained because they coassemble with Kv2 alpha subunits and contribute to
+      the channel complex rather than acting as soluble/accessory proteins.
+    exclusions:
+      - "Kcnab1-Kcnab3 and Kcnip1-Kcnip4: cytosolic auxiliary subunits"
+      - "Kcne1-Kcne5: single-pass ancillary/minK-related subunits"
+      - "Kcnma1, Kcnn1-Kcnn4, Kcnt1-Kcnt2: calcium- or sodium-activated K channels, not Kv1-Kv12"
+      - "Kcnj and Kcnk families: inward rectifiers or two-pore-domain K channels, not voltage-gated Kv alpha subunits"
+    sources:
+      - "https://www.guidetopharmacology.org/GRAC/FamilyDisplayForward?familyId=81"
+      - "https://doi.org/10.1124/pr.57.4.10"
+
+  CaV:
+    display_name: "voltage-gated calcium-channel alpha1 pore-forming subunits"
+    requested_n: 10
+    genes: [Cacna1s, Cacna1c, Cacna1d, Cacna1f, Cacna1a, Cacna1b, Cacna1e, Cacna1g, Cacna1h, Cacna1i]
+    inclusion_rule: >-
+      All ten mammalian CaV1-CaV3 alpha1 subunits; IUPHAR identifies alpha1 as
+      pore-forming and as the principal pharmacological subunit.
+    exclusions:
+      - "Cacna2d1-Cacna2d4: alpha2-delta auxiliary subunits"
+      - "Cacnb1-Cacnb4: cytosolic beta auxiliary subunits"
+      - "Cacng1-Cacng8: gamma/TARP-related auxiliary subunits, not the calcium-channel pore"
+    sources:
+      - "https://www.guidetopharmacology.org/GRAC/FamilyDisplayForward?familyId=80"
+      - "https://pubmed.ncbi.nlm.nih.gov/21746798/"
+
+  HCN:
+    display_name: "hyperpolarization-activated cyclic-nucleotide-gated channels"
+    requested_n: 4
+    genes: [Hcn1, Hcn2, Hcn3, Hcn4]
+    inclusion_rule: >-
+      The complete four-member mammalian HCN channel-forming family; HCN
+      subunits assemble as pore-forming tetramers carrying Ih/If.
+    exclusions:
+      - "Cnga1-Cnga4 and Cngb1/Cngb3: cyclic-nucleotide-gated sensory channels, not HCN"
+      - "Trip8b/Pex5l: HCN trafficking/gating auxiliary protein"
+    sources:
+      - "https://www.guidetopharmacology.org/GRAC/FamilyIntroductionForward?familyId=71"
+      - "https://doi.org/10.1152/physrev.00029.2008"
+
+  GABAA:
+    display_name: "ionotropic GABA-A receptor-forming subunits"
+    requested_n: 19
+    genes:
+      - Gabra1
+      - Gabra2
+      - Gabra3
+      - Gabra4
+      - Gabra5
+      - Gabra6
+      - Gabrb1
+      - Gabrb2
+      - Gabrb3
+      - Gabrg1
+      - Gabrg2
+      - Gabrg3
+      - Gabrd
+      - Gabre
+      - Gabrp
+      - Gabrq
+      - Gabrr1
+      - Gabrr2
+      - Gabrr3
+    inclusion_rule: >-
+      The 19-member mammalian Cys-loop GABA-A receptor-subunit family. Rho
+      subunits are retained because NC-IUPHAR classifies former GABA-C receptors
+      as the rho subfamily of GABA-A receptors.
+    exclusions:
+      - "Gabbr1/Gabbr2: metabotropic GABA-B receptor subunits"
+      - "Gabarap-family, gephyrin and trafficking/scaffolding proteins: not receptor-forming subunits"
+    sources:
+      - "https://www.guidetopharmacology.org/GRAC/FamilyDisplayForward?familyId=72"
+      - "https://pubmed.ncbi.nlm.nih.gov/18790874/"
+
+  iGluR:
+    display_name: "AMPA, kainate and NMDA ionotropic glutamate-receptor subunits"
+    requested_n: 16
+    genes:
+      - Gria1
+      - Gria2
+      - Gria3
+      - Gria4
+      - Grik1
+      - Grik2
+      - Grik3
+      - Grik4
+      - Grik5
+      - Grin1
+      - Grin2a
+      - Grin2b
+      - Grin2c
+      - Grin2d
+      - Grin3a
+      - Grin3b
+    inclusion_rule: >-
+      All mouse AMPA (GluA1-4), kainate (GluK1-5) and NMDA (GluN1,
+      GluN2A-D, GluN3A-B) receptor-forming subunits specified by NC-IUPHAR.
+    exclusions:
+      - "Grid1/Grid2: delta/orphan iGluR homologs; excluded from the primary module because the requested scope specifies AMPA/NMDA/kainate and IUPHAR notes no functional receptor from wild-type delta subunits alone or with other iGluR subunits in transfected cells"
+      - "Grm1-Grm8: metabotropic glutamate receptors"
+      - "Cacng/TARP, Neto, Cnih and Shisa proteins: auxiliary/trafficking subunits"
+    sources:
+      - "https://www.guidetopharmacology.org/GRAC/FamilyDisplayForward?familyId=75"
+      - "https://pmc.ncbi.nlm.nih.gov/articles/PMC2847504/"

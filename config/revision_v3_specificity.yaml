@@ -1,0 +1,83 @@
+schema_version: "1.0"
+seed: 42
+
+paths:
+  modeling_table: data/processed/modeling_table.parquet
+  frozen_folds: results/tables/cv_folds.csv
+  crosswalk: results/tables/cell_id_crosswalk.csv
+  metadata: data/raw/20200711_patchseq_metadata_mouse.csv
+  raw_count_archive: data/raw/20200513_Mouse_PatchSeq_Release_count.v2.csv.tar
+  module_cpm: data/interim/module_gene_cpm.parquet
+  library_sizes: data/interim/library_sizes.csv
+  gene_modules: config/gene_modules.yaml
+  ephys_features: config/ephys_features.yaml
+  primary_hyperparameters: results/tables/fitted_hyperparameters.csv
+  primary_performance: results/tables/model_performance.csv
+  primary_oof: results/predictions/oof_predictions.parquet
+  primary_shap: results/shap/oof_shap.parquet
+
+expected:
+  cohort_n: 3410
+  donor_n: 871
+  transcriptomic_sample_n: 4435
+  gene_row_n: 45768
+  outer_folds: 3
+  feature_n: 24
+  primary_oof_sha256: 9d0fb9edb89b3133fd1e356cbc437ca7aa3b985df4f810805b0cce74b96a4217
+  primary_shap_sha256: a6a0c7dc5df16106882c1da74faa043e8a54ccf82d2a73325cd4eabf3094453b
+
+count_stream:
+  chunksize: 512
+  selected_gene_chunksize: 256
+
+random_controls:
+  smoke_controls_per_module: 10
+  full_controls_per_module: 200
+  checkpoint_every: 10
+  nearest_neighbor_pool: 128
+  max_candidate_pool: 1024
+  maximum_attempts_per_set: 200
+  max_per_gene_standardized_distance: 0.50
+  max_mean_per_gene_standardized_distance: 0.25
+  max_module_abs_standardized_mean_difference: 0.10
+  max_module_abs_standardized_detection_difference: 0.10
+  minimum_passing_fraction: 0.90
+  modules_smoke: [GABAA]
+  folds_smoke: [0]
+
+models:
+  bootstrap_draws: 1000
+  elastic_net_tune: true
+  xgboost_tune: true
+  random_control_xgboost_retune: false
+
+residualization:
+  nuisance_covariates: [log10_total_counts, log10_genes_detected]
+  nuisance_model: linear_regression
+
+target_definitions:
+  primary: mean_log2_cpm_plus_1
+  alternatives: [zmean, pc1]
+  pc1_sign_reference: mean_standardized_expression
+  classification:
+    robust_max_abs_xgboost_r2_delta: 0.05
+    moderate_max_abs_xgboost_r2_delta: 0.10
+
+reliability:
+  large_module_draws: 1000
+  exhaustive_modules: [HCN, NaV, CaV]
+
+core_only:
+  map_confidence_value: Core
+  targets: [GABAA, iGluR, NaV, log10_total_counts, log10_genes_detected]
+  outer_folds: 3
+  fold_seed: 42
+
+housekeeping:
+  approved_gene_list: null
+
+outputs:
+  results: results/revision_v3/specificity
+  figures: figures/revision_v3/specificity
+  logs: logs/revision_v3/specificity
+  models: models/revision_v3/specificity

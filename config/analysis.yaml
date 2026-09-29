@@ -1,0 +1,23 @@
+mode: fast-paper
+seed: 42
+outer_folds: 3
+group_aware: true
+total_runtime_minutes: 150
+hard_compute_stop_minute: 145
+target_score: mean_log2_cpm_plus_1
+primary_metrics:
+  - r2
+  - mae
+  - rmse
+  - spearman
+modules:
+  - NaV
+  - Kv
+  - CaV
+  - HCN
+  - GABAA
+  - iGluR
+runtime_levels:
+  0: {mlp_seeds: 3, bootstrap: 1000, permutations: 5000, shap_cap: null}
+  1: {mlp_seeds: 2, bootstrap: 500, permutations: 2000, shap_cap: 2000}
+  2: {mlp_seeds: 1, bootstrap: 300, permutations: 1000, shap_cap: 1000}
